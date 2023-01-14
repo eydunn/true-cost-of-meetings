@@ -2,6 +2,8 @@ import "./MeetingCostCalculator.css";
 
 import React, { useState, useEffect } from "react";
 
+import ForkMe from './ForkMe';
+
 function MeetingCostCalculator() {
   const [participants, setParticipants] = useState([]);
   const [cost, setCost] = useState(0);
@@ -74,6 +76,7 @@ function MeetingCostCalculator() {
 
   return (
     <div className="bg">
+      <ForkMe />
       <div className="meeting-cost-calculator">
         <h1>True Cost of Meetings</h1>
         <h2 className="running-time">
