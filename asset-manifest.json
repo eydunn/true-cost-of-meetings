@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/true-cost-of-meetings/static/css/main.0c0744c9.css",
-    "main.js": "/true-cost-of-meetings/static/js/main.475dd957.js",
+    "main.css": "/true-cost-of-meetings/static/css/main.0b3e8906.css",
+    "main.js": "/true-cost-of-meetings/static/js/main.5af8816e.js",
     "static/js/787.165a2357.chunk.js": "/true-cost-of-meetings/static/js/787.165a2357.chunk.js",
     "static/media/image.webp": "/true-cost-of-meetings/static/media/image.9ae158fd3a912bb53000.webp",
     "index.html": "/true-cost-of-meetings/index.html",
-    "main.0c0744c9.css.map": "/true-cost-of-meetings/static/css/main.0c0744c9.css.map",
-    "main.475dd957.js.map": "/true-cost-of-meetings/static/js/main.475dd957.js.map",
+    "main.0b3e8906.css.map": "/true-cost-of-meetings/static/css/main.0b3e8906.css.map",
+    "main.5af8816e.js.map": "/true-cost-of-meetings/static/js/main.5af8816e.js.map",
     "787.165a2357.chunk.js.map": "/true-cost-of-meetings/static/js/787.165a2357.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c0744c9.css",
-    "static/js/main.475dd957.js"
+    "static/css/main.0b3e8906.css",
+    "static/js/main.5af8816e.js"
   ]
 }
