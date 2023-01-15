@@ -6,7 +6,10 @@ function AdvancedMeetingCostCalculator({isFormVisible, setIsFormVisible}) {
   let initParticipants = []; 
   const storedParticipantsString = localStorage.getItem("participants");
   if(storedParticipantsString){
-    initParticipants =  JSON.parse(storedParticipantsString);
+    initParticipants = JSON.parse(storedParticipantsString);
+    initParticipants.forEach((participant) => {
+      participant.chargePerStarted = participant.chargePerStarted || 1;
+    });
   }
   const [participants, setParticipants] = useState(initParticipants);
   const [cost, setCost] = useState(0);
@@ -20,7 +23,7 @@ function AdvancedMeetingCostCalculator({isFormVisible, setIsFormVisible}) {
     const category = e.target.elements.category.value;
     const number = e.target.elements.number.value;
     const hourlyRate = e.target.elements.hourlyRate.value;
-    const chargePerStarted = e.target.elements.chargeperstarted.value;
+    const chargePerStarted = e.target.elements.chargePerStarted.value;
     const newParticipant = { category, number, hourlyRate, chargePerStarted };
     setParticipants([...participants, newParticipant]);
   }
@@ -118,7 +121,7 @@ function AdvancedMeetingCostCalculator({isFormVisible, setIsFormVisible}) {
             </label>
             <label>
               Charge per started: 
-              <select name="chargeperstarted">
+              <select name="chargePerStarted">
                 <option value="60">1 minute</option>
                 <option value="300">5 minutes</option>
                 <option value="600">10 minutes</option>
@@ -138,7 +141,7 @@ function AdvancedMeetingCostCalculator({isFormVisible, setIsFormVisible}) {
               <span>{participant.category}{" "}
                 {running ? 
                   "(" + formatDuration((Math.ceil(duration / participant.chargePerStarted) * participant.chargePerStarted) - duration) + ")"
-                :
+                : participant.chargePerStarted === 1 ? "(charged per started second)" :
                   "(charged per started " + Math.ceil(participant.chargePerStarted / 60) + " minute" + (Math.ceil(participant.chargePerStarted/60) > 1 ? "s" : "") + ")"
                 }
               </span>
