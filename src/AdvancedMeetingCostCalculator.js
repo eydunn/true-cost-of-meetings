@@ -135,7 +135,14 @@ function AdvancedMeetingCostCalculator({isFormVisible, setIsFormVisible}) {
         <ul className="participant-list">
           {participants.map((participant, index) => (
             <li className="participant-item" key={index}>
-              <span>{participant.category} (charged per started { Math.ceil(participant.chargePerStarted / 60) } minute{ Math.ceil(participant.chargePerStarted/60) > 1 ? "s" : ""} )</span>
+              <span>{participant.category}{" "}
+                {running ? 
+                  "(" + formatDuration((Math.ceil(duration / participant.chargePerStarted) * participant.chargePerStarted) - duration) + ")"
+                :
+                  "(charged per started " + Math.ceil(participant.chargePerStarted / 60) + " minute" + (Math.ceil(participant.chargePerStarted/60) > 1 ? "s" : "") + ")"
+                }
+              </span>
+              
               <span>
                 {participant.hourlyRate} *{" "}
                 <span className="number-of-participants">
@@ -147,7 +154,6 @@ function AdvancedMeetingCostCalculator({isFormVisible, setIsFormVisible}) {
                   participant.number *
                   ( (Math.ceil(duration / participant.chargePerStarted) * participant.chargePerStarted) / 3600 )
                 ).toFixed(2)}{" "}
-                ( {formatDuration((Math.ceil(duration / participant.chargePerStarted) * participant.chargePerStarted) - duration)} )
                 <button
                 className={`form-container remove-participant-button ${isFormVisible ? "" : "hidden"}`}
                   onClick={() => removeParticipant(index)}
