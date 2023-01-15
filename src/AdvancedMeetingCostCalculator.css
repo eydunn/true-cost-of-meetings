@@ -23,11 +23,19 @@
 .meeting-cost-calculator form label {
   display: block;
   margin-bottom: 0.5em;
+  margin-right: 1em;
 }
 
 .meeting-cost-calculator form input {
   padding: 0.5em;
   font-size: 1em;
+}
+
+.meeting-cost-calculator form select, 
+.meeting-cost-calculator form select option 
+{
+  padding: 0.5em;
+  font-size: 2em;
 }
 
 .meeting-cost-calculator ul {
@@ -64,7 +72,8 @@
   margin-right: 0;
 }
 
-.meeting-cost-calculator .grand-total {
+.meeting-cost-calculator .grand-total,
+.meeting-cost-calculator .countdown {
   text-align: right;
 }
 
