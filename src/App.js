@@ -5,16 +5,20 @@ import React, { useState, useEffect } from "react";
 import ForkMe from './ForkMe';
 
 function MeetingCostCalculator() {
-  const [participants, setParticipants] = useState([]);
+
+
+  let initParticipants = []; 
+  const storedParticipantsString = localStorage.getItem("participants");
+  if(storedParticipantsString){
+    initParticipants =  JSON.parse(storedParticipantsString);
+  }
+  const [participants, setParticipants] = useState(initParticipants);
   const [cost, setCost] = useState(0);
   const [running, setRunning] = useState(false);
   const [duration, setDuration] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(true);
 
-  function toggleForm() {
-    setIsFormVisible(!isFormVisible);
-  }
   function addParticipant(e) {
     e.preventDefault();
     const category = e.target.elements.category.value;
@@ -57,14 +61,25 @@ function MeetingCostCalculator() {
     if (hours > 0) {
       time += `${hours} hour${hours > 1 ? "s" : ""}, `;
     }
-    if (minutes > 0) {
+    if (hours > 0 || minutes > 0) {
       time += `${minutes} minute${minutes > 1 ? "s" : ""}, `;
     }
-    if (seconds > 0) {
+    if (hours > 0 || minutes > 0 || seconds > 0) {
       time += `${seconds} second${seconds > 1 ? "s" : ""}`;
     }
     return time;
   }
+
+  useEffect(() => {
+    const storedParticipantsString = localStorage.getItem("participants");
+    if(storedParticipantsString){
+      setParticipants(JSON.parse(storedParticipantsString));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("participants", JSON.stringify(participants));
+  }, [participants]);
 
   useEffect(() => {
     let cost = 0;
@@ -137,7 +152,7 @@ function MeetingCostCalculator() {
               Start Meeting
             </button>
           )}
-          <button className="reset-meeting-button" onClick={resetMeeting}>
+          <button className="reset-meeting-button" disabled={running} onClick={resetMeeting}>
             Reset
           </button>
         </div>

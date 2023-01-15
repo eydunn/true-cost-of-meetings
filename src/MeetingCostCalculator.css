@@ -68,6 +68,11 @@
   background-color: #0064C8;
 }
 
+.meeting-cost-calculator button.reset-meeting-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .meeting-cost-calculator button:last-of-type {
   margin-right: 0;
 }
