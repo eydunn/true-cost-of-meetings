@@ -1,3 +1,9 @@
+Result of a discussion with ChatGPT where I explained this: https://twitter.com/mnorgaard/status/1612771714961756162
+
+
+<hr/>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
