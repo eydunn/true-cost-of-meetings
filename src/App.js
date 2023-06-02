@@ -2,9 +2,9 @@ import "./App.css";
 
 import React, { useState } from "react";
 
-import ForkMe from './ForkMe';
-import MeetingCostCalculator from "./MeetingCostCalculator";
-import AdvancedMeetingCostCalculator from "./AdvancedMeetingCostCalculator";
+import ForkMe from './ForkMe/ForkMe';
+import MeetingCostCalculator from "./MeetingCostCalculator/MeetingCostCalculator";
+import AdvancedMeetingCostCalculator from "./AdvancedMeetingCostCalculator/AdvancedMeetingCostCalculator";
 
 function App() {
 
